@@ -41,10 +41,15 @@ Amazon SageMaker. la aplicacion utiliza **AWS Bedrock** -> (Anthropic Claude) pa
 
 3. Construir la imagen Docker 
 ej:
-docker build -t asistente-sagemaker .
+docker build -t asistente-bedrock-image .
 
 4. Ejecutar el proyecto
-docker run -p 8501:8501 --env-file .env.example llm-asistente-sagemaker
-
+docker run -d -p 8501:8501 --name asistente-bedrock-container --env-file .env.example asistente-bedrock-image
 5. Abrir la app en el navegador
 http://localhost:8501
+
+NOTA:
+Puedes prender e iniciar el contenedor:
+- docker start asistente-bedrock-container
+- docker stop asistente-bedrock-container
+
