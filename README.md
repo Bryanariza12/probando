@@ -29,5 +29,22 @@ Amazon SageMaker. la aplicacion utiliza **AWS Bedrock** -> (Anthropic Claude) pa
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone <URL_DE_TU_REPOSITORIO>
+   git clone <URL_DE_EL_REPOSITORIO>
    cd LLM
+
+2. **.env**
+   ```bash
+   revisa el .env.example 
+   tendras que colocar 
+   AWS_ACCESS_KEY_ID
+   AWS_SECRET_ACCESS_KEY
+
+3. Construir la imagen Docker 
+ej:
+docker build -t asistente-sagemaker .
+
+4. Ejecutar el proyecto
+docker run -p 8501:8501 --env-file .env.example llm-asistente-sagemaker
+
+5. Abrir la app en el navegador
+http://localhost:8501
